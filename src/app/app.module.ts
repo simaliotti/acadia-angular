@@ -13,6 +13,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { AuthComponent } from './auth/auth.component';
 import { JwtInterceptorService } from './interceptor/jwt-interceptor.service';
+import { ListCategoriesComponent } from './content/categories/list-categories.component';
+import { CategoryService } from './core/service/category.service';
+import { TrainingsComponent } from './content/trainings/trainings.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import { JwtInterceptorService } from './interceptor/jwt-interceptor.service';
     UsersComponent,
     UserDetailComponent,
     UserCreateComponent,
-    AuthComponent
+    AuthComponent,
+    ListCategoriesComponent,
+    TrainingsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,8 @@ import { JwtInterceptorService } from './interceptor/jwt-interceptor.service';
     ReactiveFormsModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useExisting: JwtInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useExisting: JwtInterceptorService, multi: true },
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

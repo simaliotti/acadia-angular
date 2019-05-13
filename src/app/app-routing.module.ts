@@ -5,6 +5,9 @@ import {UserDetailComponent} from './user-detail/user-detail.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { AuthComponent } from './auth/auth.component';
 import { UserGuardGuard } from './guards/user-guard.guard';
+import { ListCategoriesComponent } from './content/categories/list-categories.component';
+import { ContentComponent } from './content/content.component';
+import { TrainingsComponent } from './content/trainings/trainings.component';
 
 
 
@@ -18,6 +21,12 @@ const routes: Routes = [
     path: 'lazy',
     loadChildren: './lazy-training/lazy-training.module#LazyTrainingModule'
   },
+  { path: 'users', component: UsersComponent},
+  { path: 'user-detail/:uuid', component: UserDetailComponent},
+  { path: 'user-create', component: UserCreateComponent},
+  {path: '', component: ContentComponent},
+  {path: 'categories', component: ListCategoriesComponent},
+  {path: 'trainings', component: TrainingsComponent},
 ];
 
 @NgModule({
