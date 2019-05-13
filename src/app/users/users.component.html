@@ -1,21 +1,21 @@
 <div class="content">
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Profil</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of users">
-            <td>{{user.name}}</td>
-            <td>{{user.email}}</td>
-
-
-            <td *ngIf="user.actif==true"> Activé</td>
-            <td *ngIf="user.actif==false"> Désactivé</td>
-          </tr>
-        </tbody>
-      </table>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Ville</th>
+        <th scope="col">Profil</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.address.city }}</td>
+        <td *ngIf="user.actif == true">Activé</td>
+        <td *ngIf="user.actif == false">Désactivé</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
