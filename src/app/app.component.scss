@@ -1,3 +1,31 @@
+.body{
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.nav{
+background-color: #5DA9D8;
+height: 70x;
+color: white;
+line-height: 40px;
+padding-left: 14px;
+font-weight: bold;
+margin: 0 auto;
+
+
+
+}
 .horizontal-align{
 display: flex;
 }
+.side{
+  height: 1000px;
+  background-color: #2E4655;
+  color: white;
+  width: 20%;
+}
+.content{
+  width: 80%;
+
+}
+
