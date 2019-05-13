@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent} from './users/users.component';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 
 const routes: Routes = [
@@ -13,7 +13,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
 
 
 

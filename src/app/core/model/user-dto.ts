@@ -11,7 +11,6 @@ export class UserDto {
 
 
   constructor(name: string, firstName: string, email: string, address: AdressDto, actif: boolean)
-
   {
     this.name = name, this.firstName = firstName, this.email = email, this.address = address,
     this.actif = actif
