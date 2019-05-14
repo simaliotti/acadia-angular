@@ -1,21 +1,25 @@
-
-import { AdressDto } from './adress-dto';
+import { AddressDto } from './address-dto';
 
 export class UserDto {
+  uuid: string;
+  name: string;
+  firstName: string;
+  email: string;
+  address: AddressDto;
+  actif: boolean;
 
-  private name: string;
-  private firstName: string;
-  private email: string;
-  private address: AdressDto;
-  private actif: boolean;
-
-
-  constructor(name: string, firstName: string, email: string, address: AdressDto, actif: boolean)
-  {
-    this.name = name, this.firstName = firstName, this.email = email, this.address = address,
-    this.actif = actif
+  constructor(
+    name?: string,
+    firstName?: string,
+    email?: string,
+    address?: AddressDto,
+    actif?: boolean
+  ) {
+    (this.name = name),
+      (this.firstName = firstName),
+      (this.email = email),
+      (this.address = address),
+      (this.actif = actif);
   }
 
 }
-
-

@@ -3,6 +3,13 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { UserDto } from "../core/model/user-dto";
 import { Observable, of, Subject } from "rxjs";
 
+const httpOptions = {
+  headers: new HttpHeaders({
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+})
+};
+
 @Injectable({
   providedIn: "root"
 })
@@ -24,5 +31,17 @@ export class UsersService {
         console.log("Error : " + error);
       }
     );
+  }
+
+  //GET : get a user by uuid
+  getUser(uuid: string) {
+    return this.httpClient.get<UserDto>(this.notificationUrl + "/" + uuid);
+  }
+
+  //UPDATE : update a user
+  updateUser(userDto: UserDto){
+    console.log('user to update');
+    console.log(userDto);
+    this.httpClient.put(this.notificationUrl, userDto, httpOptions).subscribe();
   }
 }
