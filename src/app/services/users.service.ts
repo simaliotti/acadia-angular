@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { UserDto } from "../core/model/user-dto";
 import { Observable, of, Subject } from "rxjs";
+import { Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,7 +15,7 @@ const httpOptions = {
   providedIn: "root"
 })
 export class UsersService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private router: Router) {}
 
   usersSubject = new Subject<UserDto[]>();
 
@@ -42,6 +43,8 @@ export class UsersService {
   updateUser(userDto: UserDto){
     console.log('user to update');
     console.log(userDto);
-    this.httpClient.put(this.notificationUrl, userDto, httpOptions).subscribe();
+    this.httpClient.put(this.notificationUrl, userDto, httpOptions).subscribe(
+      () => {this.router.navigate(['/users']);}
+    );
   }
 }
