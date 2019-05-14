@@ -10,6 +10,7 @@ import { UsersComponent } from './users/users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserCreateComponent } from './user-create/user-create.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SidebarComponent,
     ContentComponent,
     UsersComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    UserCreateComponent
   ],
   imports: [
     BrowserModule,

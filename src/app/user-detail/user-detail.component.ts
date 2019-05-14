@@ -45,7 +45,6 @@ export class UserDetailComponent implements OnInit {
     } else if (form.value["actif"] == "disable"){
       user.actif = false;
     }
-
     address.city = form.value["city"];
     address.country = form.value["country"];
     address.cp = form.value["cp"];

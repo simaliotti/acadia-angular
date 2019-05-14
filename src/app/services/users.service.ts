@@ -2,13 +2,13 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { UserDto } from "../core/model/user-dto";
 import { Observable, of, Subject } from "rxjs";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 
 const httpOptions = {
   headers: new HttpHeaders({
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-})
+    "Content-Type": "application/json",
+    Accept: "application/json"
+  })
 };
 
 @Injectable({
@@ -33,18 +33,28 @@ export class UsersService {
       }
     );
   }
-
   //GET : get a user by uuid
   getUser(uuid: string) {
     return this.httpClient.get<UserDto>(this.notificationUrl + "/" + uuid);
   }
 
   //UPDATE : update a user
-  updateUser(userDto: UserDto){
-    console.log('user to update');
+  updateUser(userDto: UserDto) {
+    console.log("user to update");
     console.log(userDto);
-    this.httpClient.put(this.notificationUrl, userDto, httpOptions).subscribe(
-      () => {this.router.navigate(['/users']);}
-    );
+    this.httpClient
+      .put(this.notificationUrl, userDto, httpOptions)
+      .subscribe(() => {
+        this.router.navigate(["/users"]);
+      });
+  }
+
+  //POST : create a user
+  createUser(userDto: UserDto) {
+    this.httpClient
+      .post(this.notificationUrl, userDto, httpOptions)
+      .subscribe(() => {
+        this.router.navigate(["/users"]);
+      });
   }
 }
