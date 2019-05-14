@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit, OnDestroy{
   constructor(private usersService: UsersService, private router: Router) { }
 
   ngOnInit() {
+    window.scroll(0,0);
     this.usersSubscription = this.usersService.usersSubject.subscribe(
       (data: UserDto[]) => {
         this.users = data;
