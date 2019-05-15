@@ -2,8 +2,11 @@
   <h6>
     <a routerLink="/users" routerLinkActive="active">Utilisateurs</a>
   </h6>
-  <div class="sous-menu">
+  <div *ngIf="authStatus" class="sous-menu">
     <a routerLink="/user-create" routerLinkActive="active"
       >Créer un utilisateurs</a>
   </div>
 </div>
+
+
+

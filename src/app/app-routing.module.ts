@@ -11,8 +11,8 @@ import { UserGuardGuard } from './guards/user-guard.guard';
 
 const routes: Routes = [
   { path: 'users', component: UsersComponent, canActivate: [UserGuardGuard]},
-  { path: 'user-detail/:uuid', component: UserDetailComponent},
-  { path: 'user-create', component: UserCreateComponent},
+  { path: 'user-detail/:uuid', component: UserDetailComponent, canActivate: [UserGuardGuard]},
+  { path: 'user-create', component: UserCreateComponent, canActivate: [UserGuardGuard]},
   { path: 'signin', component: AuthComponent}
 ];
 

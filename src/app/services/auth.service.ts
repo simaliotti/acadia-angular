@@ -5,6 +5,7 @@ import { HttpHeaders } from "@angular/common/http";
 import { LoginRequest } from "../core/model/login-request";
 import { JwtAuthenticationResponse } from "../core/model/jwt-authentication-response";
 import { JwtInterceptorService } from "../interceptor/jwt-interceptor.service";
+import { Subject } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -24,7 +25,7 @@ export class AuthService {
   ) {}
 
   private notificationUrl = "http://localhost:8083/api/auth/";
-
+  authSubject = new Subject<boolean>();
   //Signin
   signIn(loginRequest: LoginRequest) {
     this.httpClient
@@ -36,6 +37,9 @@ export class AuthService {
       .subscribe(
         data => {
           this.jwtInterceptor.setJwtToken(data);
+          //emit the data
+          this.authSubject.next(true);
+          //redirect to users page
           this.router.navigate(["/users"]);
         },
         error => {
