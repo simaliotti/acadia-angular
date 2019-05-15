@@ -1,0 +1,128 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      aria-describedby="emailHelp"
+      formControlName="email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="name">Nom</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      aria-describedby="name"
+      formControlName="name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="firstName">Prénom</label>
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      aria-describedby="firstName"
+      formControlName="firstName"
+    />
+  </div>
+  <div class="form-group">
+    <label for="number">Numéro d'adresse</label>
+    <input
+      type="number"
+      class="form-control"
+      id="number"
+      aria-describedby="number"
+      formControlName="number"
+    />
+  </div>
+  <div class="form-group">
+    <label for="road">Libellé de voie</label>
+    <input
+      type="text"
+      class="form-control"
+      id="road"
+      aria-describedby="road"
+      formControlName="road"
+    />
+  </div>
+  <div class="form-group">
+    <label for="roadType">Type de voie</label>
+    <input
+      type="text"
+      class="form-control"
+      id="roadType"
+      aria-describedby="roadType"
+      formControlName="roadType"
+    />
+  </div>
+  <div class="form-group">
+    <label for="cp">Code postal</label>
+    <input
+      type="text"
+      class="form-control"
+      id="cp"
+      aria-describedby="cp"
+      formControlName="cp"
+    />
+  </div>
+  <div class="form-group">
+    <label for="city">Ville</label>
+    <input
+      type="text"
+      class="form-control"
+      id="city"
+      aria-describedby="city"
+      formControlName="city"
+    />
+  </div>
+  <div class="form-group">
+    <label for="country">Pays</label>
+    <input
+      type="text"
+      class="form-control"
+      id="country"
+      aria-describedby="country"
+      formControlName="country"
+    />
+  </div>
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Profil</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="enable"
+            value="enable"
+            formControlName="actif"
+          />
+          <label class="form-check-label" for="enable">
+            Activé
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="actif"
+            id="disable"
+            value="disable"
+            formControlName="actif"
+          />
+          <label class="form-check-label" for="disable">
+            Désactivé
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <button type="submit" class="btn btn-primary">
+    Enregistrer
+  </button>
+</form>
