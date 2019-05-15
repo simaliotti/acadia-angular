@@ -13,7 +13,11 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent, canActivate: [UserGuardGuard]},
   { path: 'user-detail/:uuid', component: UserDetailComponent, canActivate: [UserGuardGuard]},
   { path: 'user-create', component: UserCreateComponent, canActivate: [UserGuardGuard]},
-  { path: 'signin', component: AuthComponent}
+  { path: 'signin', component: AuthComponent},
+  {
+    path: 'lazy',
+    loadChildren: './lazy-training/lazy-training.module#LazyTrainingModule'
+  },
 ];
 
 @NgModule({
