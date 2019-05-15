@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Category } from '../model/category';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 /**
  * Service to manage categories via a Rest Api.
@@ -16,19 +16,26 @@ export class CategoryService {
   private ctg: Category;
   private ctgs: Category[];
 
+  public sub: Subject<Category[]>;
+
   /* Constructor */
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.sub = new Subject();
+  }
 
   /* Return all */
-  getAll(): Category[] {
-    this
-      .http
-      .get(`http://localhost:8083/public/categories`)
-      .subscribe(
-        (c: Category[]) => this.ctgs = c,
-        () => this.ctgs = null
+  getAll() {
+    this.http.get(`http://localhost:8083/public/categories`).subscribe(
+        (c: Category[]) => {
+          this.ctgs = c;
+        },
+        () => {
+          this.ctgs = null;
+        },
+        () => {
+          this.sub.next(this.ctgs);
+        }
       );
-    return this.ctgs;
   }
 
   /* Return the category matching with the id */

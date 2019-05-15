@@ -1,0 +1,9 @@
+<div *ngIf="video.uuid">
+  <video controls width="500">
+
+  <source src="http://localhost:8083/api/download?uuid={{video.uuid}}" type="video/mp4">
+      Sorry, your browser doesn't support embedded videos.
+
+  </video>
+  <!-- <p > uuid = {{video.uuid}} </p> -->
+</div>

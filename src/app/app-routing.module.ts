@@ -8,6 +8,8 @@ import { UserGuardGuard } from './guards/user-guard.guard';
 import { ListCategoriesComponent } from './content/categories/list-categories.component';
 import { ContentComponent } from './content/content.component';
 import { TrainingsComponent } from './content/trainings/trainings.component';
+import { VideosComponent } from './content/videos/videos.component';
+import { VideoStreamComponent } from './content/video-stream/video-stream.component';
 
 
 
@@ -24,9 +26,11 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent},
   { path: 'user-detail/:uuid', component: UserDetailComponent},
   { path: 'user-create', component: UserCreateComponent},
-  {path: '', component: ContentComponent},
-  {path: 'categories', component: ListCategoriesComponent},
-  {path: 'trainings', component: TrainingsComponent},
+  { path: '', component: ContentComponent},
+  { path: 'categories', component: ListCategoriesComponent},
+  { path: 'trainings', component: TrainingsComponent},
+  { path: 'videos', component: VideosComponent},
+  { path: 'videos/:uuid', component: VideoStreamComponent}
 ];
 
 @NgModule({

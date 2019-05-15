@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/core/model/category';
 import { CategoryService } from 'src/app/core/service/category.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list-categories',
@@ -12,17 +13,25 @@ export class ListCategoriesComponent implements OnInit {
   ctg: Category;
   ctgs: Category[];
 
+  ctgSous: Subscription;
+
   constructor(private categoryService: CategoryService) {  }
 
   ngOnInit() {
-    this.getAll();
+    this.ctgSous = this.categoryService.sub.subscribe(
+      data => this.ctgs = data,
+      error => this.ctgs = null
+    );
+    this.categoryService.getAll();
+  }
+
+  ngOnDestroy() {
+    this.ctgSous.unsubscribe();
   }
 
   /* Return all */
   getAll() {
-    this.ctgs = this
-                  .categoryService
-                  .getAll();
+    this.categoryService.getAll();
   }
 
 

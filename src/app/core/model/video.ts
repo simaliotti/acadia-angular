@@ -1,5 +1,4 @@
 import { Training } from './training';
-import { Category } from './category';
 
 export class Video {
 

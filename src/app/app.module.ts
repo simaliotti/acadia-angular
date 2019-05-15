@@ -16,6 +16,9 @@ import { JwtInterceptorService } from './interceptor/jwt-interceptor.service';
 import { ListCategoriesComponent } from './content/categories/list-categories.component';
 import { CategoryService } from './core/service/category.service';
 import { TrainingsComponent } from './content/trainings/trainings.component';
+import { VideosComponent } from './content/videos/videos.component';
+import { VideoService } from './core/service/video.service';
+import { VideoStreamComponent } from './content/video-stream/video-stream.component';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { TrainingsComponent } from './content/trainings/trainings.component';
     UserCreateComponent,
     AuthComponent,
     ListCategoriesComponent,
-    TrainingsComponent
+    TrainingsComponent,
+    VideosComponent,
+    VideoStreamComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,8 @@ import { TrainingsComponent } from './content/trainings/trainings.component';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useExisting: JwtInterceptorService, multi: true },
-    CategoryService
+    CategoryService,
+    VideoService
   ],
   bootstrap: [AppComponent]
 })

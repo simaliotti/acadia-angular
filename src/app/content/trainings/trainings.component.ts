@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Training } from 'src/app/core/model/category/training';
 
 // Component that lists trainings
 @Component({
@@ -41,3 +40,4 @@ export class TrainingsComponent implements OnInit {
   }
 
 }
+
