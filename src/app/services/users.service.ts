@@ -17,6 +17,7 @@ const httpOptions = {
 export class UsersService {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
+  usersDto: UserDto[];
   usersSubject = new Subject<UserDto[]>();
 
   private notificationUrl = "http://localhost:8083/api/users";
@@ -26,10 +27,11 @@ export class UsersService {
     this.httpClient.get<UserDto[]>(this.notificationUrl).subscribe(
       data => {
         console.log(data);
-        this.usersSubject.next(data);
+        this.usersDto = data;
+        this.usersSubject.next(this.usersDto);
       },
       error => {
-        console.log("Error : " + error);
+        console.log("Error : ", error);
       }
     );
   }
@@ -56,5 +58,31 @@ export class UsersService {
       .subscribe(() => {
         this.router.navigate(["/users"]);
       });
+  }
+
+  //DELETE : delete a user
+  deleteUser(uuid: string) {
+    this.httpClient
+      .delete(this.notificationUrl + "/" + uuid, httpOptions)
+      .subscribe(
+        () => {
+          this.removeUserFromArray(uuid);
+          this.usersSubject.next(this.usersDto);
+
+        },
+        error => {
+          console.log("Error : ", error);
+        }
+      );
+  }
+
+  removeUserFromArray(uuid: string) {
+    let users: UserDto[] = [];
+    this.usersDto.forEach(user => {
+      if (user.uuid != uuid) {
+        users.push(user);
+      }
+    });
+    this.usersDto = users;
   }
 }

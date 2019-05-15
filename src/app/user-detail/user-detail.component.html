@@ -118,13 +118,13 @@
         <legend class="col-form-label col-sm-2 pt-0">Profil</legend>
         <div class="col-sm-10">
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="enable" value="enable" name="actif" ngModel>
+            <input class="form-check-input" type="radio" id="enable" value="enable" name="actif" [attr.checked]="user.actif? 'checked' : null" ngModel>
             <label class="form-check-label" for="enable">
               Activé
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="actif" id="disable" value="disable" ngModel>
+            <input class="form-check-input" type="radio" name="actif" id="disable" value="disable" [attr.checked]="!user.actif? 'checked' : null" ngModel>
             <label class="form-check-label" for="disable">
               Désactivé
             </label>

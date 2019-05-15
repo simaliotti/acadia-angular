@@ -1,3 +1,33 @@
-tr{
+tr {
   cursor: pointer;
+}
+
+.button-create {
+  color: white;
+  background-color: #5da9d8;
+  border: none;
+}
+.button-delete {
+  color: rgba(93, 169, 216, 0.692);
+  background-color: #ffffb1;
+  border: none;
+}
+.button-delete a {
+  color: rgba(93, 169, 216, 0.692);
+  text-decoration: none;
+}
+.button-create a {
+  color: #ffffb1;
+  text-decoration: none;
+}
+
+.button {
+  border-radius: 5px 5px;
+}
+
+.button-create {
+  margin: 30px auto;
+}
+.center-align{
+  text-align: center;
 }

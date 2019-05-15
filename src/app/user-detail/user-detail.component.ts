@@ -11,9 +11,9 @@ import { AddressDto } from "../core/model/address-dto";
   styleUrls: ["./user-detail.component.scss"]
 })
 export class UserDetailComponent implements OnInit {
-
   currentUuid: string;
   user: UserDto;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -30,7 +30,6 @@ export class UserDetailComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-
     let user: UserDto = new UserDto();
     let address: AddressDto = new AddressDto();
 
@@ -39,10 +38,10 @@ export class UserDetailComponent implements OnInit {
     user.name = form.value["name"];
     user.uuid = this.currentUuid;
 
-    console.log(form.value['actif']);
-    if(form.value["actif"] == "enable"){
+    console.log(form.value["actif"]);
+    if (form.value["actif"] == "enable") {
       user.actif = true;
-    } else if (form.value["actif"] == "disable"){
+    } else if (form.value["actif"] == "disable") {
       user.actif = false;
     }
     address.city = form.value["city"];
@@ -57,4 +56,5 @@ export class UserDetailComponent implements OnInit {
     console.log(user);
     this.usersService.updateUser(user);
   }
+
 }
