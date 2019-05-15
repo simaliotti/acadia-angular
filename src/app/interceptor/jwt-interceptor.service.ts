@@ -29,4 +29,15 @@ export class JwtInterceptorService implements HttpInterceptor {
   removeJwtToken() {
     this.jwt = null;
   }
+
+  actualizeToken() {
+    let tokenFromSessionStorage = sessionStorage.getItem("token");
+    if (tokenFromSessionStorage != null) {
+    this.jwt = new JwtAuthenticationResponse(tokenFromSessionStorage, 'Bearer');
+    return true;
+    } else {
+      return false;
+    }
+  }
 }
+
