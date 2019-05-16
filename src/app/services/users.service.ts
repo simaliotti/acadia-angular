@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
 const httpOptions = {
   headers: new HttpHeaders({
     "Content-Type": "application/json",
-    Accept: "application/json"
+    "Accept": "application/json"
   })
 };
 
@@ -24,7 +24,7 @@ export class UsersService {
 
   // GET : get all users from the server
   getUsers() {
-    this.httpClient.get<UserDto[]>(this.notificationUrl).subscribe(
+    this.httpClient.get<UserDto[]>(this.notificationUrl, httpOptions).subscribe(
       data => {
         console.log(data);
         this.usersDto = data;
