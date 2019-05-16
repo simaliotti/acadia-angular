@@ -13,6 +13,7 @@ export class VideoStreamComponent implements OnInit {
 
   public video: Video;
   public videoSubscription: Subscription;
+  public url: string;
 
   constructor(private videoService: VideoService, private route: ActivatedRoute) { }
 
@@ -30,6 +31,7 @@ export class VideoStreamComponent implements OnInit {
           console.log('Eh merde.');
         });
     const uuid = this.route.snapshot.paramMap.get('uuid');
+    this.url = "http://localhost:8083/api/video/part/"+uuid;
     this.getByUuid(uuid);
   }
 
