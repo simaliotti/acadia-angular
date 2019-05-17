@@ -33,4 +33,5 @@ export class AuthComponent implements OnInit {
     loginRequest.password = formValue["password"];
     this.authService.signIn(loginRequest);
   }
+
 }

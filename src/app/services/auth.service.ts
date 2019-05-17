@@ -72,4 +72,10 @@ export class AuthService {
       this.authStatus = false;
     }
   }
+  logout(){
+    this.jwtInterceptor.removeJwtToken();
+    this.authStatus = false;
+    this.authSubject.next(this.authStatus);
+    this.router.navigate(["auth"]);
+  }
 }

@@ -13,6 +13,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { AuthComponent } from './auth/auth.component';
 import { JwtInterceptorService } from './interceptor/jwt-interceptor.service';
+import { ListCategoriesComponent } from './content/categories/list-categories.component';
+import { CategoryService } from './core/service/category.service';
+import { TrainingsComponent } from './content/trainings/trainings.component';
+import { VideosComponent } from './content/videos/videos.component';
+import { VideoService } from './core/service/video.service';
+import { VideoStreamComponent } from './content/video-stream/video-stream.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +30,11 @@ import { JwtInterceptorService } from './interceptor/jwt-interceptor.service';
     UsersComponent,
     UserDetailComponent,
     UserCreateComponent,
-    AuthComponent
+    AuthComponent,
+    ListCategoriesComponent,
+    TrainingsComponent,
+    VideosComponent,
+    VideoStreamComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +44,9 @@ import { JwtInterceptorService } from './interceptor/jwt-interceptor.service';
     ReactiveFormsModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useExisting: JwtInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useExisting: JwtInterceptorService, multi: true },
+    CategoryService,
+    VideoService
   ],
   bootstrap: [AppComponent]
 })

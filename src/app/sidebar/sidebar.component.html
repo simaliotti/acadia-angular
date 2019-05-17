@@ -1,14 +1,17 @@
 <div class="content">
   <h6>
-    <a routerLink="/users" routerLinkActive="active">Utilisateurs</a>
-  </h6>
-  <div *ngIf="authStatus" class="sous-menu">
-    <a routerLink="/user-create" routerLinkActive="active"
-      >Créer un utilisateurs</a> </div>
+      <a routerLink="/users" routerLinkActive="active">Utilisateurs</a> <br />
       <div *ngIf="authStatus" class="sous-menu">
-      <a routerLink="/lazy" routerLinkActive="active"
-      >Lazy</a>
-  </div>
+        <a routerLink="/user-create" routerLinkActive="active"
+          >Créer un utilisateurs</a> </div>
+          <div *ngIf="authStatus" class="sous-menu">
+          <a routerLink="/lazy" routerLinkActive="active"
+          >Lazy</a>
+      </div>
+      <a routerLink="/categories" routerLinkActive="active" > Catégories </a> <br />
+      <a routerLink="/videos" routerLinkActive="active" > Vidéos </a>
+  </h6>
+
 </div>
 
 
