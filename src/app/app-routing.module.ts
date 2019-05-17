@@ -18,19 +18,15 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent, canActivate: [UserGuardGuard]},
   { path: 'user-detail/:uuid', component: UserDetailComponent, canActivate: [UserGuardGuard]},
   { path: 'user-create', component: UserCreateComponent, canActivate: [UserGuardGuard]},
-  { path: 'signin', component: AuthComponent},
+  { path: 'auth', component: AuthComponent},
   {
     path: 'lazy',
-    loadChildren: './lazy-training/lazy-training.module#LazyTrainingModule'
+    loadChildren: './lazy-training/lazy-training.module#LazyTrainingModule', canActivate: [UserGuardGuard]
   },
-  { path: 'users', component: UsersComponent},
-  { path: 'user-detail/:uuid', component: UserDetailComponent},
-  { path: 'user-create', component: UserCreateComponent},
-  { path: '', component: ContentComponent},
-  { path: 'categories', component: ListCategoriesComponent},
-  { path: 'trainings', component: TrainingsComponent},
-  { path: 'videos', component: VideosComponent},
-  { path: 'videos/:uuid', component: VideoStreamComponent}
+  { path: 'categories', component: ListCategoriesComponent, canActivate: [UserGuardGuard]},
+  { path: 'trainings', component: TrainingsComponent, canActivate: [UserGuardGuard]},
+  { path: 'videos', component: VideosComponent, canActivate: [UserGuardGuard]},
+  { path: 'videos/:uuid', component: VideoStreamComponent, canActivate: [UserGuardGuard]}
 ];
 
 @NgModule({
