@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { UsersService } from "../services/users.service";
 import { UserDto } from "../core/model/user-dto";
 import { AddressDto } from "../core/model/address-dto";
@@ -21,9 +21,9 @@ export class UserCreateComponent implements OnInit {
   }
   initForm() {
     this.userForm = this.formBuilder.group({
-      name: "",
+      name: ["", Validators.required],
       firstName: "",
-      email: "",
+      email: ["", Validators.required],
       number: "",
       road: "",
       roadType: "",
@@ -33,6 +33,9 @@ export class UserCreateComponent implements OnInit {
       actif: ""
     });
   }
+
+  get name() { return this.userForm.get('name'); }
+
 
   onSubmitForm() {
     let user: UserDto = new UserDto();

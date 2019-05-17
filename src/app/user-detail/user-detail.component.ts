@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { UserDto } from "../core/model/user-dto";
 import { UsersService } from "../services/users.service";
 import { ActivatedRoute } from "@angular/router";
-import { NgForm } from "@angular/forms";
+import { NgForm, NgModel } from "@angular/forms";
 import { AddressDto } from "../core/model/address-dto";
 
 @Component({
@@ -13,7 +13,6 @@ import { AddressDto } from "../core/model/address-dto";
 export class UserDetailComponent implements OnInit {
   currentUuid: string;
   user: UserDto;
-
 
   constructor(
     private route: ActivatedRoute,

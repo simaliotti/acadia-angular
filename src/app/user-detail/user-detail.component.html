@@ -12,11 +12,23 @@
         id="email"
         aria-describedby="emailHelp"
         name="email"
+        email
         ngModel
         required
+        #name="ngModel"
         [(ngModel)]="user.email"
+
       />
     </div>
+    <!-- validation -->
+    <div *ngIf="name?.errors?.required">
+      Email is required.
+    </div>
+
+    <div *ngIf="name?.errors?.email">
+        Veuillez saisir une adresse email valide
+      </div>
+
     <div class="form-group">
       <label for="name">Nom</label>
       <input
