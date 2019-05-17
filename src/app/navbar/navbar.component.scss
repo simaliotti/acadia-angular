@@ -15,3 +15,38 @@ margin: 0 auto;
   padding-top: 10px;
 }
 
+button {
+  border: none;
+  background-color: #5DA9D8;
+  color: #ffffff;
+  padding: 5px 10px;
+}
+
+button:hover {
+  border: none;
+  background-color: #5DA9D8;
+  color: #ffffff;
+  padding: 5px 10px;
+}
+
+button:disabled,
+button[disabled]{
+  border: none;
+  background-color: #5DA9D8;
+  color: #666666;
+}
+
+button:hover {
+  border: none;
+  background-color: #5DA9D8;
+  color: #ffffff;
+  padding: 5px 10px;
+}
+button:focus {outline:0;}
+
+a{
+  text-decoration: none;
+  color: white;
+  font-weight: lighter;
+}
+

@@ -1,12 +1,14 @@
 <div class="img"></div>
-<div class="align-right">
+<div *ngIf="!authStatus" class="align-right">
     <a routerLink="/auth" routerLinkActive="active"
     >S'identifier</a>
 </div>
-<div class="align-right">
-  <button (click)="logout()">
+
+<div *ngIf="authStatus" class="align-right">
+  <a><button (click)="logout()">
     Se déconnecter
   </button>
+</a>
 </div>
 
 
