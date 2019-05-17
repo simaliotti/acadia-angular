@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { UserDto } from "../core/model/user-dto";
 import { Observable, of, Subject } from "rxjs";
 import { Router } from "@angular/router";
+import { NotifierService } from 'angular-notifier';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,7 +16,7 @@ const httpOptions = {
   providedIn: "root"
 })
 export class UsersService {
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  constructor(private httpClient: HttpClient, private router: Router, private notifierService: NotifierService) {}
 
   usersDto: UserDto[];
   usersSubject = new Subject<UserDto[]>();
@@ -68,6 +69,7 @@ export class UsersService {
         () => {
           this.removeUserFromArray(uuid);
           this.usersSubject.next(this.usersDto);
+          this.notifierService.notify( 'success', 'Utilisateur supprimé' );
 
         },
         error => {

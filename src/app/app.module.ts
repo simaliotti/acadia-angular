@@ -19,7 +19,50 @@ import { TrainingsComponent } from './content/trainings/trainings.component';
 import { VideosComponent } from './content/videos/videos.component';
 import { VideoService } from './core/service/video.service';
 import { VideoStreamComponent } from './content/video-stream/video-stream.component';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { notifierCustomConfigFactory } from 'angular-notifier/src/notifier.module';
 
+const notifSetting: NotifierOptions = {
+  position: {
+
+    horizontal: {
+
+      /**
+       * Defines the horizontal position on the screen
+       * @type {'left' | 'middle' | 'right'}
+       */
+      position: 'right',
+
+      /**
+       * Defines the horizontal distance to the screen edge (in px)
+       * @type {number}
+       */
+      distance: 12
+
+    },
+
+    vertical: {
+
+      /**
+       * Defines the vertical position on the screen
+       * @type {'top' | 'bottom'}
+       */
+      position: 'top',
+
+      /**
+       * Defines the vertical distance to the screen edge (in px)
+       * @type {number}
+       */
+      distance: 12,
+
+      /**
+       * Defines the vertical gap, existing between multiple notifications (in px)
+       * @type {number}
+       */
+      gap: 8
+    }
+  }
+}
 
 @NgModule({
   declarations: [
@@ -41,7 +84,8 @@ import { VideoStreamComponent } from './content/video-stream/video-stream.compon
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NotifierModule.withConfig(notifSetting)
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useExisting: JwtInterceptorService, multi: true },
